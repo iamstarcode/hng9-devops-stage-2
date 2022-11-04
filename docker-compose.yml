@@ -1,9 +1,21 @@
+version: '3'
 services:
-  front-end:
-    image: iamstarcode/dockerized-react
+  frontend:
+    build: ./frontend
+    image: "iamstarcode/dockerized-react"
+    networks:
+      - net
+  backend:
+    build: ./api
+    image: "iamstarcode/dockerized-django"
+    networks:
+      - net
+  revproxy:
+    build: ./reverse-proxy
+    image: "iamstarcode/reverseproxy"
+    networks:
+      - net
     ports:
-      - 3000:3000
-  api:
-    image: iamstarcode/dockerized-django
-    ports:
-      - 8000:8000
+      - "80:80"
+networks:
+  net:
