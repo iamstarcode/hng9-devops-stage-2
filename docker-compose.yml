@@ -1,0 +1,5 @@
+services:
+  front-end:
+    image: dockerized-react
+    ports:
+      - 80:80
