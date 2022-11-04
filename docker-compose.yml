@@ -4,18 +4,18 @@ services:
     build: ./frontend
     image: "iamstarcode/dockerized-react"
     networks:
-      - net
+      - sub-etha
   backend:
     build: ./api
     image: "iamstarcode/dockerized-django"
     networks:
-      - net
+      - sub-etha
   revproxy:
     build: ./reverse-proxy
     image: "iamstarcode/reverseproxy"
     networks:
-      - net
+      - sub-etha
     ports:
       - "80:80"
 networks:
-  net:
+  sub-etha:
