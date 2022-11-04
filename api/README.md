@@ -5,7 +5,7 @@
 ```json
 virtualenv env
 source env/bin/activate
-pip install -r requirements.txt
+pip install -r requirements.txt // if this doesnt work try ⬇️
 pip freeze > requirements.txt
 pip install django
 python3 manage.py runserver

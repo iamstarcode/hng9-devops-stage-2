@@ -7,8 +7,14 @@ COPY . .
 # Build the app
 RUN yarn build
 
+FROM node:16-alpine as production
+
+COPY --from=builder /app/build .
+
 ENV NODE_ENV production
 # Expose the port on which the app will be running (3000 is the default that `serve` uses)
 EXPOSE 3000
 # Start the app
 CMD [ "npx", "serve", "build" ]
+
+
