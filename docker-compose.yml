@@ -4,8 +4,6 @@ services:
     build: ./frontend
     image: iamstarcode/dockerized-react
     container_name: frontend
-    ports:
-      - 3000:80
     networks:
       - app-network
   backend:
