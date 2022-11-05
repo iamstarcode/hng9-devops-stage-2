@@ -10,8 +10,6 @@ services:
     build: ./api
     image: iamstarcode/dockerized-django
     container_name: backend
-    ports:
-      - 8000:8000
     networks:
       - app-network
   proxy:
@@ -26,4 +24,3 @@ services:
       - app-network
 networks:
   app-network:
-    driver: bridge
