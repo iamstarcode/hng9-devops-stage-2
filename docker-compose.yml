@@ -5,8 +5,6 @@ services:
     image: iamstarcode/dockerized-react
     container_name: dockerized-react
     restart: unless-stopped
-    ports:
-      - 3000:80
     networks:
       - app-network
 
@@ -15,8 +13,6 @@ services:
     image: iamstarcode/dockerized-django
     container_name: dockerized-django
     restart: unless-stopped
-    ports:
-      - 8000:80
     networks:
       - app-network
 
@@ -27,9 +23,7 @@ services:
     volumes:
       - ./proxy.conf:/etc/nginx/conf.d/default.conf
     ports:
-      - 80:80
-    depends_on:
-      - api
+      - "80:80"
     networks:
       - app-network
 
