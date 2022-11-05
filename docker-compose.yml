@@ -2,9 +2,37 @@ version: '3'
 services:
   frontend:
     build: ./frontend
-    image: "iamstarcode/dockerized-react"
-  backend:
-    build: ./api
-    image: "iamstarcode/dockerized-django"
+    image: iamstarcode/dockerized-react
+    container_name: dockerized-react
+    restart: unless-stopped
     ports:
-      - 8000:8000
+      - 3000:80
+    networks:
+      - app-network
+
+  api:
+    build: ./api
+    image: iamstarcode/dockerized-django
+    container_name: dockerized-django
+    restart: unless-stopped
+    ports:
+      - 8000:80
+    networks:
+      - app-network
+
+  proxy:
+    image: nginx:alpine
+    container_name: web-proxy
+    restart: unless-stopped
+    volumes:
+      - ./proxy.conf:/etc/nginx/conf.d/default.conf
+    ports:
+      - 80:80
+    depends_on:
+      - api
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
