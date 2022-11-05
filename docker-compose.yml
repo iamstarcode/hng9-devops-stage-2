@@ -10,10 +10,11 @@ services:
     image: iamstarcode/dockerized-django
     networks:
       - app-network
-  proxy:
+  web-proxy:
     image: nginx:alpine
+    container_name: web-proxy
     volumes:
-      - ./proxy.conf:/etc/nginx/conf.d/default.conf
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
     ports:
       - 80:80
     networks:
