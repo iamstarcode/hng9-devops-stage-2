@@ -7,14 +7,17 @@ pipeline {
     }
 
     agent any
+
+    tools { nodejs 'nodejs' }
+
     stages {
             stage('Unit Tests') {
             steps {
                 script {
                         sh 'npm install'
                         sh 'npm test -- --watchAll=false'
-                    }
-               }
+                }
+            }
             }
 
             stage('Building Docker Image') {
