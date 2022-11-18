@@ -13,9 +13,11 @@ pipeline {
     stages {
             stage('Unit Tests') {
             steps {
-                script {
+                dir('fronten') {
+                    script {
                         sh 'npm install'
                         sh 'npm test -- --watchAll=false'
+                    }
                 }
             }
             }
