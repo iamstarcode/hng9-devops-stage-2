@@ -1,5 +1,4 @@
 
-/* groovylint-disable-next-line CompileStatic */
 pipeline {
     environment {
         registry = 'iamstarcode/dockerized-react:latest'
@@ -29,7 +28,6 @@ pipeline {
             stage('Deploying Docker Image to Dockerhub') {
                 steps {
                     script {
-                        /* groovylint-disable-next-line NestedBlockDepth */
                         docker.withRegistry('', registryCredential) {
                         dockerImage.push()
                         }
