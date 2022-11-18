@@ -10,6 +10,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">HNGi9 DevOps Stage2 Task</h1>
         </header>
+        S
         <p className="App-intro">
           This task was submitted by <b>iamstarcode</b>
         </p>
