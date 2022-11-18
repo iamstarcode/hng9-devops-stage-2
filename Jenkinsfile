@@ -13,7 +13,7 @@ pipeline {
     stages {
             stage('Unit Tests') {
             steps {
-                dir('fronten') {
+                dir('frontend') {
                     script {
                         sh 'npm install'
                         sh 'npm test -- --watchAll=false'
