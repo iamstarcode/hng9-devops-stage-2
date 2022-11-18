@@ -8,7 +8,7 @@ pipeline {
 
     agent any
 
-    tools { nodejs 'nodejs' }
+    tools { nodejs 'Nodjs16' }
 
     stages {
             stage('Unit Tests') {
